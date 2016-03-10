@@ -40,7 +40,7 @@ articleView.handleAuthorFilter = function() {
         if (name === targetName) {
           $(this).show();
         };
-      })
+      });
 
       // $('article').filter($(this)['data-attribute']).show();
 
@@ -76,14 +76,14 @@ articleView.handleCategoryFilter = function() {
         if (name === targetCategory) {
           $(this).show();
         };
-      })
+      });
 
-      } else {
-            $('article').show();
-            $('article.template').hide();
-          }
-          $('#author-filter').val('');
-        });
+    } else {
+      $('article').show();
+      $('article.template').hide();
+    }
+    $('#author-filter').val('');
+  });
 };
 
 articleView.handleMainNav = function() {
