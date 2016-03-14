@@ -1,5 +1,6 @@
 .site-header {
-  background: #FFEAAA;
+  background:  #a6a6a6;
+  width:100% ;
 }
 
 /* DONE: Float the main header to the left, to make room for the hamburger menu. */
@@ -16,6 +17,24 @@ nav.main-nav.icon-menu::before {
   font-size: 2rem;
 }
 
+#home{
+  text-align: center;
+}
+
+#h1{
+  font-size: 7rem;
+}
+#h2{
+  font-size: 4.5rem;
+  color:pink;
+}
+#h3{
+  font-size: 2rem;
+}
+#h4{
+  font-size: 1.5rem;
+  color:lightblue;
+}
 .main-nav {
   padding: 0.1em;
 }
@@ -25,6 +44,11 @@ nav.main-nav.icon-menu::before {
   padding: 0;
   list-style: none;
   clear: both;
+  background-color: black;
+  padding: 15px;
+  border-radius: 5px;
+  width:100%;
+  /*padding-right: 500px;*/
 }
 
 .main-nav:hover ul {
@@ -56,6 +80,16 @@ nav.main-nav.icon-menu::before {
   text-decoration: none;
 }
 
+footer{
+    background:  #a6a6a6;
+    bottom:0;
+    position:absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /* DONE: Now add styles for how things should look on a larger screen:
          - Hide the hamburger.
          - Main should be all on one row, with padding spaced better for a larger screen.
@@ -72,10 +106,18 @@ nav.main-nav.icon-menu::before {
   }
   .main-nav li {
     display: inline-block;
-    padding: 0 3em 0 0;
+    padding: 0 1em 0 0;
     /*margin-left: 2%;*/
     list-style: none;
     clear: none;
     border-bottom: none;
+  }
+  footer{
+      background:  #a6a6a6;
+      bottom:0;
+      /*position:absolute;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;*/
   }
 }

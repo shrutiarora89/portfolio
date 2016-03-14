@@ -17,19 +17,8 @@ articleView.populateFilters = function() {
   });
 };
 
-articleView.handleAuthorFilter = function() {
-  $('#author-filter').on('change', function() {
-    if ($(this).val()) {
-      $('article').hide();
-      $('article[data-author="' + $(this).val() + '"]').fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
-    }
-    $('#category-filter').val('');
-  });
-};
 
+//
 articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
@@ -43,29 +32,39 @@ articleView.handleCategoryFilter = function() {
   });
 };
 
+//NAVIGATION
 articleView.handleMainNav = function() {
   $('.main-nav').on('click', '.tab', function(e) {
-    $('.tab-content').hide();
-    $('#' + $(this).data('content')).fadeIn();
+    $('.tab-content').hide(); //hide the data for all the tabs.
+    $('#' + $(this).data('content')).fadeIn();//Show the data for whichever tab is clicked.
   });
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
+
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
 
-  $('#articles').on('click', 'a.read-on', function(e) {
-    e.preventDefault();
-    $(this).parent().find('*').fadeIn();
-    $(this).hide();
+  // TODO: Add an event handler to reveal all the hidden elements,
+  //       when the .read-on link is clicked. You can go ahead and hide the
+  //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
+  //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
+  //       process any .read-on clicks that happen within child nodes.
+  $('#articles').on('click',function(ev){
+    var $evTarget = $(ev.target);
+    ev.preventDefault();
+
+    if($evTarget.hasClass('read-on')){
+      $evTarget.prev().children().show();
+      $evTarget.hide();
+    }
   });
 };
 
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleCategoryFilter();
-  articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-})
+});

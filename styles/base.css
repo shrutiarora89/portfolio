@@ -10,7 +10,10 @@ body {
   line-height: 1.5;
   font-size: 100%;
   color: #313131;
+  margin: 1rem;
 }
+
+
 
 hr {
   margin: 1em;
@@ -37,7 +40,34 @@ a, a:link, a:active {
 
 a:hover, a:focus {
   color: #29506D;
+  background-color: lightblue;
+  margin: 0.5rem;
+  padding:1rem;
 }
 
 a:visited {
+
+}
+
+#contactDiv{
+background-color: #ffcccc;
+width: 63rem;
+height: 40rem;
+padding: 4rem;
+text-align: center;
+}
+#contactDiv ul li{
+  padding:1rem;
+  list-style: none;
+}
+
+footer{
+    background:  #a6a6a6;
+    width:100%;
+    position:relative;
+    /*bottom:0;
+    position:absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;*/
 }

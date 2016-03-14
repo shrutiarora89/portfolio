@@ -1,84 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <title>Blog</title>
-    <!-- DONE: Add a meta tag to properly set the viewport and initial scale -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+
+    <!--+++++++++-->
+      <script id="rawData-template" type="text/x-handlebars-template">
+          <article class="{{template}}" data-category="{{category}}" data-author="{{institute}}">
+              <header>
+                  <h1>{{{title}}}</h1>
+                  <div class="byline">
+                   By <address><a href="{{instituteUrl}}">{{author}}</a></address>
+                   published <time pubdate datetime="2000-01-01">{{publishedOn}}</time>
+                   </div>
+               </header>
+               <section class="article-body">{{{body}}}</section>
+               <a href="#" class="read-on">Read on &rarr;</a>
+          </article>
+      </script>
+
+<!--+++++++++++-->
+
   </head>
+
+
   <body>
     <header class="site-header clearfix">
-      <section class="heading-group-h1">
-        <h1>
-          Kilovolt Blog!
-        </h1>
-        <h2>The shocking power of static pages</h2>
-      </section>
-      <nav class="main-nav icon-menu">
-        <!-- DONE: Add a hamburger menu icon here. -->
-          <ul>
-            <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
-            <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-            <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
-            <li><a href="http://github.com/brookr" target="_blank" class="icon-github"> GitHub</a></li>
-          </ul>
-      </nav>
+          <section class="heading-group-h1">
+            <h1>Shruti Arora</h1>
+            <h2>My Online Portfolio </h2>
+          </section>
+
+          <nav class="main-nav icon-menu">
+              <ul>
+                <li class="tab" data-content="hello"><a href="#">Hello</a></li>
+                <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
+                <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+                <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
+                <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li
+                <li class="tab" data-content="contact"><a href="#">Contact</a></li>
+
+              </ul>
+          </nav>
+
     </header>
+
+
     <main>
+
+      <!--#articles  and .tab-content-->
       <section id="articles" class="tab-content">
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
+              <div>
+                <ul id="filters">
+                    <li>
+                      <select id="category-filter">
+                        <option value="">-- Filter by Categories --</option>
+                      </select>
+                    </li>
+                </ul>
+              </div>
+<!--#article  and .tab-content-->
+
+  <section id="about" class="tab-content">
+        <header>
+           Welcome to my Blog
+         </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Coding</li>
+              <li>Sharing what I've learned</li>
+              <li>Hanging with my family</li>
+              <li>Active in Sports</li>
+            </ul>
+          </section>
+      </section>
+
+      <section id="hello" class="tab-content">
+          <h1 id="h1">HELLO</h1>
+          <h2 id="h2">I'M SHRUTI</h2>
+          <h3 id="h3">I'M A 301 Intermediate Software Develpment Student</h3>
+          <h4 id="h4">I AM A GREAT BLEND OF DESIGN 	&amp; PROGRAMMING</h4>
+      </section>
+
+      <section id="contact" class="tab-content">
+
+
+        <div id="contactDiv">
+          <ul>
+            <li><h1>Contact Me</h1></li>
+            <li><h3>Mobile Image</h3></li>
+            <li><h4><img src="img/email.png"  width="100" height="80"alt=""/>shruti.arora89@icloud.com</h4></li>
+            <li><a href="https://twitter.com/shrutiarora89" target="_blank" class="icon-twitter3"> Twitter</a></li>
+            <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
           </ul>
         </div>
-
-        <article class="template template" data-category="cat" width="100%" height="100%">
-          <header>
-            <h1>Title</h1>
-            <div class="byline">
-              By <address><a href="">Author Name</a></address>
-              published <time pubdate datetime="2000-01-01">Publish Time</time>
-            </div>
-          </header>
-          <section class="article-body"></section>
-          <a href="#" class="read-on">Read on &rarr;</a>
-        </article>
-
       </section>
-      <section id="about" class="tab-content">
-        <header>
-          Welcome to my Blog
-        </header>
-        <section>
-          <h1>Some of my intrests:</h1>
-          <ul>
-            <li>Coding</li>
-            <li>Sharing what I've learned</li>
-            <li>Hanging with my family</li>
-          </ul>
-        </section>
-      </section>
+
+
+    <!--  -->
+  <!--Your new content will be displayed in here-->
+      <section class="content-placeholder"></section>
+<!--  -->
+
     </main>
-    <footer>
-      &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
-    </footer>
+    <!-- <footer>
+      &copy; 2015 Code Fellows | Portfolio | Happy Coding!
+    </footer> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="scripts/blogArticles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+    <script src="scripts/rawDataArticles.js"></script>
+
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
   </body>

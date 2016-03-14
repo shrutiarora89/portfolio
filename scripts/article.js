@@ -1,42 +1,47 @@
 var articles = [];
 
 function Article (opts) {
-  this.author = opts.author;
-  this.authorUrl = opts.authorUrl;
   this.title = opts.title;
+  this.institute = opts.institute;
+  this.instituteUrl = opts.instituteUrl;
   this.category = opts.category;
   this.body = opts.body;
-  this.publishedOn = opts.publishedOn;
 }
 
 Article.prototype.toHtml = function() {
-  var $newArticle = $('article.template').clone();
-  $newArticle.removeClass('template');
-  if (!this.publishedOn) {
-    $newArticle.addClass('draft');
-  }
-  $newArticle.attr('data-category', this.category);
-  $newArticle.attr('data-author', this.author)
 
-  $newArticle.find('.byline a').html(this.author);
-  $newArticle.find('.byline a').attr('href', this.authorUrl);
-  $newArticle.find('h1:first').html(this.title);
-  $newArticle.find('.article-body').html(this.body);
-  $newArticle.find('time[pubdate]').attr('datetime', this.publishedOn)
-  $newArticle.find('time[pubdate]').attr('title', this.publishedOn)
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago')
-  $newArticle.append('<hr>');
-  return $newArticle;
-}
+  var theTemplateScript = $('#rawData-template').html();
+  var theTemplate = Handlebars.compile(theTemplateScript);
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
 
+
+  var theCompiledHtml = theTemplate(this);
+  return theCompiledHtml;
+};
+
+//
+
+//ele-element- rawDAta each element
 rawData.forEach(function(ele) {
   articles.push(new Article(ele));
-})
-
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml())
 });
+
+
+// //a-variable- Structure of Object
+// articles.forEach(function(a){
+//   if (a.category === 'education') {
+//     $('#education').append(a.toHtml());
+//   }
+// });
+//
+// articles.forEach(function(a){
+//   if (a.category === 'projects') {
+//     $('#projects').append(a.toHtml());
+//   }
+// });
+
+// #articles
+articles.forEach(function(a){
+  $('#articles').append(a.toHtml());
+});
+// #articles
