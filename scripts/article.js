@@ -1,47 +1,54 @@
-var articles = [];
+// array for projects
+ articles = [];
 
-function Article (opts) {
-  this.title = opts.title;
-  this.institute = opts.institute;
-  this.instituteUrl = opts.instituteUrl;
-  this.category = opts.category;
-  this.body = opts.body;
-}
+// array for education
+ articlesEducation = [];
 
-Article.prototype.toHtml = function() {
+ function Article (opts) {
+   this.title = opts.title;
+   this.institute = opts.institute;
+   this.instituteUrl = opts.instituteUrl;
+   this.category = opts.category;
+   this.body = opts.body;
+ }
 
-  var theTemplateScript = $('#rawData-template').html();
-  var theTemplate = Handlebars.compile(theTemplateScript);
+ Article.prototype.toHtml = function() {
 
+   var theTemplateScript = $('#rawData-template').html();
+   var theTemplate = Handlebars.compile(theTemplateScript);
 
-
-  var theCompiledHtml = theTemplate(this);
-  return theCompiledHtml;
-};
-
-//
+   var theCompiledHtml = theTemplate(this);
+   return theCompiledHtml;
+ };
 
 //ele-element- rawDAta each element
-rawData.forEach(function(ele) {
-  articles.push(new Article(ele));
-});
-
-
-// //a-variable- Structure of Object
-// articles.forEach(function(a){
-//   if (a.category === 'education') {
-//     $('#education').append(a.toHtml());
-//   }
+// rawData.forEach(function(ele) {
+//   articles.push(new Article(ele));
 // });
+
 //
-// articles.forEach(function(a){
-//   if (a.category === 'projects') {
-//     $('#projects').append(a.toHtml());
-//   }
-// });
+ rawDataProjects.forEach(function(ele) {
+   articles.push(new Article(ele));
+ });
+
+ rawDataEducation.forEach(function(ele) {
+   articlesEducation.push(new Article(ele));
+ });
+
+//
+
 
 // #articles
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml());
-});
-// #articles
+// articles.forEach(function(a){
+//   $('#articles').append(a.toHtml());
+// });
+// #article`s
+
+//a-variable- Structure of Object
+ articlesEducation.forEach(function(a){
+   $('#education').append(a.toHtml());
+ });
+
+ articles.forEach(function(a){
+   $('#projects').append(a.toHtml());
+ });

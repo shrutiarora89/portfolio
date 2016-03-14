@@ -41,11 +41,18 @@
 
           <nav class="main-nav icon-menu">
               <ul>
-                <li class="tab" data-content="hello"><a href="#">Hello</a></li>
-                <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
+                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li>
+                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li> -->
+
+                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li> -->
+                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li>
                 <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+
+                <li class="tab" data-content="education"><a href="#">Education</a></li>
+                  <li class="tab" data-content="projects"><a href="#">Projects</a></li>
+
                 <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
-                <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li
+                <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
                 <li class="tab" data-content="contact"><a href="#">Contact</a></li>
 
               </ul>
@@ -57,7 +64,7 @@
     <main>
 
       <!--#articles  and .tab-content-->
-      <section id="articles" class="tab-content">
+      <section id="projects" class="tab-content">
               <div>
                 <ul id="filters">
                     <li>
@@ -67,6 +74,7 @@
                     </li>
                 </ul>
               </div>
+      </section>
 <!--#article  and .tab-content-->
 
   <section id="about" class="tab-content">
@@ -83,8 +91,10 @@
             </ul>
           </section>
       </section>
+      <section id="education" class="tab-content"></section>
 
-      <section id="hello" class="tab-content">
+      <!-- <section id="hello" class="tab-content"> -->
+      <section id="home" class="tab-content">
           <h1 id="h1">HELLO</h1>
           <h2 id="h2">I'M SHRUTI</h2>
           <h3 id="h3">I'M A 301 Intermediate Software Develpment Student</h3>
@@ -92,17 +102,15 @@
       </section>
 
       <section id="contact" class="tab-content">
-
-
         <div id="contactDiv">
-          <ul>
-            <li><h1>Contact Me</h1></li>
-            <li><h3>Mobile Image</h3></li>
-            <li><h4><img src="img/email.png"  width="100" height="80"alt=""/>shruti.arora89@icloud.com</h4></li>
-            <li><a href="https://twitter.com/shrutiarora89" target="_blank" class="icon-twitter3"> Twitter</a></li>
-            <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
-          </ul>
-        </div>
+            <h1>Contact Me</h1>
+           <ul>
+              <li><p><img src="img/phone.png" width="100" height="80" alt=""></p>+91 206 491 0658</li>
+              <li><p><img src="img/email.png" width="100" height="80" alt=""></p>shruti.arora89@icloud.com</li>
+              <li><a href="https://twitter.com/shrutiarora89" target="_blank" class="icon-twitter3"> Twitter</a></li>
+              <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
+            </ul>
+          </div>
       </section>
 
 
@@ -119,7 +127,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 
-    <script src="scripts/rawDataArticles.js"></script>
+    <!-- <script src="scripts/rawDataArticles.js"></script> -->
+    <script src="scripts/rawDataProjects.js"></script>
+    <script src="scripts/rawDataEducation.js"></script>
+
 
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>

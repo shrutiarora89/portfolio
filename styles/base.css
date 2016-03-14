@@ -50,11 +50,12 @@ a:visited {
 }
 
 #contactDiv{
-background-color: #ffcccc;
-width: 63rem;
-height: 40rem;
-padding: 4rem;
-text-align: center;
+  background-color: #ffcccc;
+  width: 48rem;
+  height: 40rem;
+  padding-left: 2rem;
+  margin-left: 2rem;
+  text-align: center;
 }
 #contactDiv ul li{
   padding:1rem;
