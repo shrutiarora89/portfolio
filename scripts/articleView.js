@@ -28,6 +28,10 @@ articleView.handleCategoryFilter = function() {
   });
 };
 
+
+// technically it may not be the top of the page - it may be an anchor to somewhere
+// else on the page or it may be the click event that fires a jquery event
+
 //NAVIGATION
 articleView.handleMainNav = function() {
   $('.main-nav').on('click', '.tab', function(e) {
@@ -47,12 +51,11 @@ articleView.setTeasers = function() {
   //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
-  $('#articles').on('click',function(ev){
+  $('article').on('click',function(ev){
     var $evTarget = $(ev.target);
     ev.preventDefault();
-
     if($evTarget.hasClass('read-on')){
-      $evTarget.prev().children().show();
+      $evTarget.parent().children().show();
       $evTarget.hide();
     }
   });

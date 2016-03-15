@@ -12,6 +12,7 @@
 /* DONE: Add styles for the icon-menu class. It should be bigger, and off to the right. */
 nav.main-nav.icon-menu::before {
   float: right;
+  margin-right:0.5em;
 }
 .icon-menu::before {
   font-size: 2rem;
@@ -21,18 +22,18 @@ nav.main-nav.icon-menu::before {
   text-align: center;
 }
 
-#h1{
-  font-size: 7rem;
+#home h1{
+  font-size: 5rem;
 }
-#h2{
-  font-size: 4.5rem;
+#home h2{
+  font-size: 2.5rem;
   color:pink;
 }
-#h3{
-  font-size: 2rem;
+#home h3{
+  font-size: 1rem;
 }
-#h4{
-  font-size: 1.5rem;
+#home h4{
+  font-size: 0.5rem;
   color:lightblue;
 }
 .main-nav {
@@ -41,7 +42,7 @@ nav.main-nav.icon-menu::before {
 
 .main-nav ul {
   display: none;
-  padding: 0;
+  padding: 1em;
   list-style: none;
   clear: both;
   background-color: black;
@@ -53,13 +54,19 @@ nav.main-nav.icon-menu::before {
 
 .main-nav:hover ul {
   display: block;
+  /*background-color: red;*/
 }
 
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
+  text-align: center;
   border-bottom: 1px solid #ccc;
+}
+
+.main-nav:hover li {
+ color: yellow;
 }
 
 #filters {
@@ -95,6 +102,8 @@ footer{
          - Main should be all on one row, with padding spaced better for a larger screen.
          - Just, ya know, try to make it look good! */
 /* @media only screen... */
+
+/*larger screen:*/
 @media screen and (min-width: 900px) {
   nav.main-nav.icon-menu::before {
     display: none;
@@ -111,7 +120,26 @@ footer{
     list-style: none;
     clear: none;
     border-bottom: none;
+    text-align: center;
   }
+
+  #home{
+    text-align: center;
+  }
+
+  #home h1{
+    font-size: 7rem;
+  }
+  #home h2{
+    font-size: 4.5rem;
+    color:pink;
+  }
+  #home h3{
+    font-size: 2rem;
+  }
+  /*#home h3{
+    font-size: 2rem;
+  }*/
   footer{
       background:  #a6a6a6;
       bottom:0;
