@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
+    <link rel="stylesheet" href="styles/styleCircle.css">
+
+
+
     <!--+++++++++-->
       <script id="rawData-template" type="text/x-handlebars-template">
           <article class="{{template}}" data-category="{{category}}" data-author="{{institute}}">
@@ -32,7 +36,9 @@
   </head>
 
 
+  <!-- <body id="color"> -->
   <body>
+
     <header class="site-header clearfix">
           <section class="heading-group-h1">
             <h1>Shruti Arora</h1>
@@ -94,11 +100,14 @@
       <section id="education" class="tab-content"></section>
 
       <!-- <section id="hello" class="tab-content"> -->
-      <section id="home" class="tab-content">
+      <section id="home" style="position:relative;" class="tab-content">
+        <div style="position:relative;z-index:100">
           <h1 id="h1">HELLO</h1>
           <h2 id="h2">I'M SHRUTI</h2>
           <h3 id="h3">I'M A 301 Intermediate Software Develpment Student...</h3>
           <h3 id="h3">I AM A GREAT BLEND OF DESIGN 	&amp; PROGRAMMING</h3>
+        </div>
+       <div id="bubbles" style="position:absolute;z-index:0;top:0;left:0;opacity:0.1"></div>
       </section>
 
       <section id="contact" class="tab-content">
@@ -120,19 +129,29 @@
 <!--  -->
 
     </main>
-    <!-- <footer>
+    <footer>
       &copy; 2015 Code Fellows | Portfolio | Happy Coding!
-    </footer> -->
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 
     <!-- <script src="scripts/rawDataArticles.js"></script> -->
     <script src="scripts/rawDataProjects.js"></script>
+
     <script src="scripts/rawDataEducation.js"></script>
+
+    <!-- Circle -->
+
+
+
+    <!--  -->
 
 
     <script src="scripts/article.js"></script>
+
     <script src="scripts/articleView.js"></script>
+    <script src="scripts/scriptCircle.js"></script>
+
   </body>
 </html>

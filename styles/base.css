@@ -1,4 +1,4 @@
-/* TODO: Add a rule for images, so they never exceed their container's width. */
+/* DONE: Add a rule for images, so they never exceed their container's width. */
 
 img {
   max-width: 100%;
@@ -49,26 +49,14 @@ a:visited {
 
 }
 
-#contactDiv{
-  background-color: #ffcccc;
-  width: 48rem;
-  height: 40rem;
-  padding-left: 2rem;
-  margin-left: 2rem;
-  text-align: center;
-}
-#contactDiv ul li{
-  padding:1rem;
-  list-style: none;
-}
 
-footer{
+/*footer{
     background:  #a6a6a6;
     width:100%;
     position:relative;
-    /*bottom:0;
+    bottom:0;
     position:absolute;
     text-align: center;
     margin-left: auto;
-    margin-right: auto;*/
-}
+    margin-right: auto;
+}*/
