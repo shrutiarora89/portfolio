@@ -18,7 +18,7 @@ var x = function() {
     i++;
     setTimeout(function(){ x() }, 12);
   }
-}
+};
 
 x();
 
