@@ -53,9 +53,8 @@
                 <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li> -->
                 <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li>
                 <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-
                 <li class="tab" data-content="education"><a href="#">Education</a></li>
-                  <li class="tab" data-content="projects"><a href="#">Projects</a></li>
+                <li class="tab" data-content="projects"><a href="#">Projects</a></li>
 
                 <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
                 <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
@@ -97,6 +96,8 @@
             </ul>
           </section>
       </section>
+
+      <!-- Append #education toHtml -->
       <section id="education" class="tab-content"></section>
 
       <!-- <section id="hello" class="tab-content"> -->
@@ -133,25 +134,18 @@
       &copy; 2015 Code Fellows | Portfolio | Happy Coding!
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 
     <!-- <script src="scripts/rawDataArticles.js"></script> -->
-    <script src="scripts/rawDataProjects.js"></script>
-
-    <script src="scripts/rawDataEducation.js"></script>
-
-    <!-- Circle -->
-
-
-
-    <!--  -->
-
-
+    <!-- <script src="data/rawDataProjects.json"></script> -->
+    <script src="data/rawDataEducation.json"></script>
     <script src="scripts/article.js"></script>
-
     <script src="scripts/articleView.js"></script>
     <script src="scripts/scriptCircle.js"></script>
-
+  <script>
+      console.log("S")
+      Article.fetchAll();
+  </script>
   </body>
 </html>

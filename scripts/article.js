@@ -20,20 +20,47 @@
    var theCompiledHtml = theTemplate(this);
    return theCompiledHtml;
  };
+// getting the rawDataEducation key as a parameter
+ // Article.loadAll = function(rawDataEducation){
+ //
+ //   rawDataEducation.forEach(function(ele) {
+ //     articlesEducation.push(new Article(ele));
+ //   });
+ //
+ // };
 
+ Article.fetchAll = function(){
+   //When the rawDataEducation is alredy in localStorage
+   if(false && localStorage.getItem('rawDataEducation')){
+     //load all the data using .loadAll function
+     Article.loadAll('#rawData-template');
+     //render the index page
+     articleView.getItem();
+   }
+  else{ //When we don't have rawDataEducation in the  localStorage
+  //retriving the JSON file from the server with AJAX getJSON method
+     $.getJSON('data/rawDataEducation.json',function(data){
+
+  //load all the data using .loadAll function
+       Article.loadAll(data);              
+       console.log(data);
+//caching it in the localStorage (Key-rawDataEducation, value-JSON.stringfy(data))
+       localStorage.setItem('rawDataEducation',JSON.stringify(data));
+     //render the index page
+       articleView.initIndexPage();
+     });
+   }
+ };
 //ele-element- rawDAta each element
 // rawData.forEach(function(ele) {
 //   articles.push(new Article(ele));
 // });
 
 //
- rawDataProjects.forEach(function(ele) {
-   articles.push(new Article(ele));
- });
+ // rawDataProjects.forEach(function(ele) {
+ //   articles.push(new Article(ele));
+ // });
 
- rawDataEducation.forEach(function(ele) {
-   articlesEducation.push(new Article(ele));
- });
 
 //
 

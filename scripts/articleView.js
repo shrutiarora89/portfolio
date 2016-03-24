@@ -61,9 +61,18 @@ articleView.setTeasers = function() {
   });
 };
 
-$(document).ready(function() {
-  articleView.populateFilters();
-  articleView.handleCategoryFilter();
-  articleView.handleMainNav();
-  articleView.setTeasers();
-});
+
+articleView.initIndexPage = function() {
+  Article.all.forEach(function(a){
+    $('#education').append(a.toHtml());
+  });
+
+
+
+  $(document).ready(function() {
+    articleView.populateFilters();
+    articleView.handleCategoryFilter();
+    articleView.handleMainNav();
+    articleView.setTeasers();
+  });
+};
