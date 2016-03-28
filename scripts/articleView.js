@@ -61,13 +61,19 @@ articleView.setTeasers = function() {
   });
 };
 
-
+// A function that initiates the index page and goes thro each item of array articlesEducation
+// and appends it to the screen.
 articleView.initIndexPage = function() {
-  Article.all.forEach(function(a){
+
+  //Array of educat data including all functions
+  articlesEducation.forEach(function(a){
     $('#education').append(a.toHtml());
   });
 
-
+//Array of project data including all functions
+  articlesProjects.forEach(function(a){
+    $('#projects').append(a.toHtml());
+  });
 
   $(document).ready(function() {
     articleView.populateFilters();
@@ -75,4 +81,5 @@ articleView.initIndexPage = function() {
     articleView.handleMainNav();
     articleView.setTeasers();
   });
+
 };
