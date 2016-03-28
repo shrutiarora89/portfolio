@@ -16,9 +16,11 @@ var x = function() {
     html = '<div class="lens" style="background-color:' + rgbColor + '"></div>';
     jQuery('#bubbles').append(html);
     i++;
-    setTimeout(function(){ x() }, 12);
-  }
-}
+    setTimeout(function(){
+      x(); 
+    }, 12);
+  };
+};
 
 x();
 

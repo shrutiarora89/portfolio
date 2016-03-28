@@ -1,42 +1,52 @@
 .site-header {
   background:  #a6a6a6;
   width:100% ;
+
+  /* DONE: Float the main header to the left, to make room for the hamburger menu. */
+  .heading-group-h1 {
+    float: left;
+    padding: 0 0 .2em 1em;
+  }
+
+  /* DONE: Add styles for the icon-menu class. It should be bigger, and off to the right. */
+  nav.main-nav.icon-menu::before {
+    float: right;
+    margin-right:0.5em;
+  }
+
+  .icon-menu::before {
+    font-size: 2rem;
+  }
 }
 
-/* DONE: Float the main header to the left, to make room for the hamburger menu. */
-.heading-group-h1 {
-  float: left;
-  padding: 0 0 .2em 1em;
-}
 
-/* DONE: Add styles for the icon-menu class. It should be bigger, and off to the right. */
-nav.main-nav.icon-menu::before {
-  float: right;
-  margin-right:0.5em;
-}
-.icon-menu::before {
-  font-size: 2rem;
-}
 
-#home{
+
+
+#home {
   text-align: center;
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color:pink;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 0.5rem;
+    color:lightblue;
+  }
 }
 
-#home h1{
-  font-size: 5rem;
-}
-#home h2{
-  font-size: 2.5rem;
-  color:pink;
-}
-#home h3{
-  font-size: 1rem;
-}
-#home h4{
-  font-size: 0.5rem;
-  color:lightblue;
-}
-.main-nav {
+
+/*.main-nav {
   padding: 0.1em;
 }
 
@@ -49,8 +59,7 @@ nav.main-nav.icon-menu::before {
   padding: 15px;
   border-radius: 5px;
   width:100%;
-  /*padding-right: 500px;*/
-}
+}*/
 
 .main-nav:hover ul {
   display: block;
