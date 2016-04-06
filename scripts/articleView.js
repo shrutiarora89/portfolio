@@ -74,4 +74,5 @@
     });
 
   };
+  module.articleView = articleView;
 })(window);
