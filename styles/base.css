@@ -1,15 +1,19 @@
-/* DONE: Add some coordinated colors to make the blog more distinguished:
-         Use an accent color for all links, and remove their underline. */
+/* DONE: Add a rule for images, so they never exceed their container's width. */
+
+img {
+  max-width: 100%;
+  margin: 5px;
+}
 
 body {
+  width:100%;
   line-height: 1.5;
   font-size: 100%;
   color: #313131;
-  background-color: white;
-  padding: 1em;
-  border-style: solid;
-  border-color: black;
+  margin: 1rem;
 }
+
+
 
 hr {
   margin: 1em;
@@ -31,13 +35,28 @@ address {
 
 a, a:link, a:active {
   text-decoration: none;
-    color: #777;
+  color: #777;
 }
 
 a:hover, a:focus {
-
+  color: #29506D;
+  background-color: lightblue;
+  margin: 0.5rem;
+  padding:1rem;
 }
 
 a:visited {
-  color: #777;
+
 }
+
+
+/*footer{
+    background:  #a6a6a6;
+    width:100%;
+    position:relative;
+    bottom:0;
+    position:absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}*/

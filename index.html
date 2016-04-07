@@ -1,91 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <title>Blog</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+
+    <link rel="stylesheet" href="styles/styleCircle.css">
+
+
+
+    <!--+++++++++-->
+      <script id="rawData-template" type="text/x-handlebars-template">
+          <article class="{{template}}" data-category="{{category}}" data-author="{{institute}}">
+              <header>
+                  <h1>{{{title}}}</h1>
+                  <div class="byline">
+                   Studied at<address><a href="{{instituteUrl}}">{{institute}}</a></address>
+                   </div>
+               </header>
+               <section class="article-body">{{{body}}}</section>
+               <a href="#" class="read-on">Read on &rarr;</a>
+          </article>
+      </script>
+
+<!--+++++++++++-->
+
   </head>
+
+
+  <!-- <body id="color"> -->
   <body>
-    <header class="site-header">
-      <h1>Overview</h1>
-      <p>The shocking power of static pages</p>
+
+    <header class="site-header clearfix">
+          <section class="heading-group-h1">
+            <h1>Shruti Arora</h1>
+            <h2>My Online Portfolio </h2>
+          </section>
+
+          <nav class="main-nav icon-menu">
+              <ul>
+                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li>
+                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li> -->
+
+                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li> -->
+                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li>
+                <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+                <li class="tab" data-content="education"><a href="#">Education</a></li>
+                <li class="tab" data-content="projects"><a href="#">Projects</a></li>
+
+                <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
+                <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
+                <li class="tab" data-content="contact"><a href="#">Contact</a></li>
+
+              </ul>
+          </nav>
+
     </header>
-    <!--- -++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -------------------------------------->
-    <nav class="main-nav">
-      <ul>
-        <!-- TODO: Use one of the icons from the available set for each of these nav items... -->
-        <li class="tab icon-rocket" data-content="articles"><a href="#"> Home</a></li>
-        <li class="tab icon-power" data-content="about"><a href="#"> About</a></li>
-        <li class="icon-twitter3"><a href="https://twitter.com/shrutiarora89" target="_blank"> Twitter</a></li>
-        <li class="icon-github"><a href="https://github.com/shrutiarora89" target="_blank"> GitHub</a></li>
-      </ul>
-    </nav>
-<!--- -++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -------------------------------------->
+
+
     <main>
-      <section id="articles" class="tab-content">
 
-        <div>
-          <ul id="filters">
-            <li>
-              <select id="author-filter">
-                <option value="">-- Filter by Authors --</option>
-              </select>
-            </li>
-            <li>
-              <select id="category-filter">
-                <option value="">-- Filter by Categories --</option>
-              </select>
-            </li>
-          </ul>
-        </div>
-
-        <article class="template template" data-category="cat">
-          <header>
-            <h1>Title</h1>
-            <div class="byline">
-              By <address><a href="">Author Name</a></address>
-              published <time pubdate datetime="2000-01-01">Publish Time</time>
-            </div>
-          </header>
-<!--- -++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -------------------------------------->
-
-          <section class="article-body"></section>
-          <a href="#" class="read-on">Read on &rarr;</a>
-        </article>
-
+      <!--#articles  and .tab-content-->
+      <section id="projects" class="tab-content">
+              <div>
+                <ul id="filters">
+                    <li>
+                      <select id="category-filter">
+                        <option value="">-- Filter by Categories --</option>
+                      </select>
+                    </li>
+                </ul>
+              </div>
       </section>
-<!--- -++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -------------------------------------->
+<!--#article  and .tab-content-->
 
-      <section id="about" class="tab-content">
+  <section id="about" class="tab-content">
         <header>
-          About Me
-        </header>
-        <section>
-          <h1>Some of my intrests:</h1>
-          <ul>
-            <li>Coding</li>
-            <li>Sharing what I've learned</li>
-            <li>Hanging with my family</li>
-          </ul>
-
-        </section>
-
+           Welcome to my Blog
+         </header>
+          <section>
+            <h1>Some of my interests:</h1>
+            <ul>
+              <li>Coding</li>
+              <li>Sharing what I've learned</li>
+              <li>Hanging with my family</li>
+              <li>Active in Sports</li>
+            </ul>
+          </section>
       </section>
-    </main>
 
+      <!-- Append #education toHtml -->
+      <section id="education" class="tab-content"></section>
+
+      <!-- Append #projects toHtml -->
+      <section id="projects" class="tab-content"></section>
+
+      <!-- <section id="hello" class="tab-content"> -->
+      <section id="home" style="position:relative;" class="tab-content">
+        <div style="position:relative;z-index:100">
+          <h1 id="h1">HELLO</h1>
+          <h2 id="h2">I'M SHRUTI</h2>
+          <h3 id="h3">I'M A 301 Intermediate Software Develpment Student...</h3>
+          <h3 id="h3">I AM A GREAT BLEND OF DESIGN 	&amp; PROGRAMMING</h3>
+        </div>
+       <div id="bubbles" style="position:absolute;z-index:0;top:0;left:0;opacity:0.1"></div>
+      </section>
+
+      <section id="contact" class="tab-content">
+        <div id="contactDiv">
+            <h1>Contact Me</h1>
+           <ul>
+              <li><p><img src="img/phone.png" width="100" height="80" alt=""></p>+91 206 491 0658</li>
+              <li><p><img src="img/email.png" width="100" height="80" alt=""></p>shruti.arora89@icloud.com</li>
+              <li><a href="https://twitter.com/shrutiarora89" target="_blank" class="icon-twitter3"> Twitter</a></li>
+              <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
+            </ul>
+          </div>
+      </section>
+
+
+    <!--  -->
+  <!--Your new content will be displayed in here-->
+      <section class="content-placeholder"></section>
+<!--  -->
+
+    </main>
     <footer>
-      &copy; 2015 Code Fellows | Static Blog | Happy Ipsum!
+      &copy; 2015 Code Fellows | Portfolio | Happy Coding!
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="scripts/blogArticles.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+    <!-- <script src="scripts/rawDataArticles.js"></script> -->
+    <script src="data/rawDataProjects.json"></script>
+    <script src="data/rawDataEducation.json"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
+    <script src="scripts/scriptCircle.js"></script>
+  <script>
+      Article.fetchEducation(articleView.initIndexPage);
+      Article.fetchProjects(articleView.initIndexPage);
 
-
-    <!-- DONE: Link up the new js file that will manage the article "View". -->
+  </script>
   </body>
 </html>

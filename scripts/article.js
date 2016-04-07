@@ -1,44 +1,96 @@
-var articles = [];
+// array for projects
+ articlesProjects = [];
 
-function Article (opts) {
-  this.author = opts.author;
-  this.authorUrl = opts.authorUrl;
-  this.title = opts.title;
-  this.category = opts.category;
-  this.body = opts.body;
-  this.publishedOn = opts.publishedOn;
-}
+// array for education
+ articlesEducation = [];
 
-Article.prototype.toHtml = function() {
-  var $newArticle = $('article.template').clone();
-  $newArticle.removeClass('template');
-  if (!this.publishedOn) {
-    $newArticle.addClass('draft');
-  }
-  $newArticle.attr('data-category', this.category);
-  $newArticle.attr('data-attribute', this.author);
-  // DONE: Use jQuery to also add the author name as a data-attribute of the newly cloned article.
-  //       Doing so will allow us to use selectors to target articles, based on who wrote them.
+ function Article (opts) {
+   this.title = opts.title;
+   this.institute = opts.institute;
+   this.instituteUrl = opts.instituteUrl;
+   this.category = opts.category;
+   this.body = opts.body;
+ }
 
-  $newArticle.find('.byline a').html(this.author);
-  $newArticle.find('.byline a').attr('href', this.authorUrl);
-  $newArticle.find('h1:first').html(this.title);
-  $newArticle.find('.article-body').html(this.body);
-  $newArticle.find('time[pubdate]').attr('datetime', this.publishedOn);
-  $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
-  $newArticle.append('<hr>');
-  return $newArticle;
-};
+ Article.prototype.toHtml = function() {
 
-rawData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+   var theTemplateScript = $('#rawData-template').html();
+   var theTemplate = Handlebars.compile(theTemplateScript);
 
-rawData.forEach(function(ele) {
-  articles.push(new Article(ele));
-});
+   var theCompiledHtml = theTemplate(this);
+   return theCompiledHtml;
+ };
 
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml());
-});
+
+// Function that pushes the data into the array articlesEducation and insantiating a new object Education using Constructor.
+ Article.loadEducation = function(data){
+   data.forEach(function(ele) {
+     articlesEducation.push(new Article(ele));
+   });
+
+ };
+
+ // Function that pushes the data into the array articlesProjects and insantiating a new object Project using Constructor.
+ Article.loadProjects = function(data){
+   data.forEach(function(ele) {
+     articlesProjects.push(new Article(ele));
+   });
+
+ };
+
+ // ------------------------fetchEducation--------------------------------------------------------
+
+ Article.fetchEducation = function(){
+   //When the rawDataEducation is already in localStorage
+  //  Second time- It will get the item by the key rawDataEducation which is set on line 61.
+   if (localStorage.getItem('rawDataEducation')){
+     var data = JSON.parse(localStorage.getItem('rawDataEducation'));
+     //load all the data using .loadAll function
+     Article.loadEducation(data);
+     //render the index page
+     articleView.initIndexPage();
+   }
+  else { //When we don't have rawDataEducation in the  localStorage
+     //retriving the JSON file from the server with AJAX getJSON method
+     $.getJSON('data/rawDataEducation.json',function(data){
+       //load all the data using .loadAll function
+       Article.loadEducation(data);
+       //caching it in the localStorage (Key-rawDataEducation, value-JSON.stringfy(data))
+       //First Time- Setting the key for the localStorage.So that we can get it with the Key 'rawDataEducation'.
+       localStorage.setItem('rawDataEducation',JSON.stringify(data));
+       //render the index page
+       articleView.initIndexPage();
+     });
+   }
+ };
+ // -------------------------------------------------------------------------------------------------
+
+
+
+// ------------------------fetchProjects--------------------------------------------------------
+ Article.fetchProjects = function(){
+   //When the rawDataEducation is alredy in localStorage
+  //  Second time- It will get the item by the key rawDataProjects which is set on line 80.
+  // The localStorage will have the data
+   if (false && localStorage.getItem('rawDataProjects')){
+     //load all the data using .loadAll function
+     var data = JSON.parse(localStorage.getItem('rawDataProjects'));
+     Article.loadProjects(data);
+     //render the index page
+     articleView.initIndexPage();
+   }
+  else { //When we don't have rawDataProjects in the  localStorage
+     //retriving the JSON file from the server with AJAX getJSON method
+     $.getJSON('data/rawDataProjects.json',function(data){
+       console.log(data);
+       //load all the data using .loadAll function
+       Article.loadProjects(data);
+       //caching it in the localStorage (Key-rawDataEducation, value-JSON.stringfy(data))
+       //First Time- Setting the key for the localStorage.So that we can get it with the Key 'rawDataEducation'.
+       localStorage.setItem('rawDataProjects',JSON.stringify(data));
+       //render the index page
+       articleView.initIndexPage();
+     });
+   }
+ };
+ // -------------------------------------------------------------------------------------------------

@@ -1,35 +1,77 @@
-/* DONE: Give the site header a nice background color, from your selected color scheme. */
-
 .site-header {
-  padding: .1em;
-  background-color: #b30000;
+  background:  #a6a6a6;
+  width:100% ;
 }
 
+/* DONE: Float the main header to the left, to make room for the hamburger menu. */
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em 1em;
+}
+
+/* DONE: Add styles for the icon-menu class. It should be bigger, and off to the right. */
+nav.main-nav.icon-menu::before {
+  float: right;
+  margin-right:0.5em;
+}
+.icon-menu::before {
+  font-size: 2rem;
+}
+
+#home{
+  text-align: center;
+}
+
+#home h1{
+  font-size: 5rem;
+}
+#home h2{
+  font-size: 2.5rem;
+  color:pink;
+}
+#home h3{
+  font-size: 1rem;
+}
+#home h4{
+  font-size: 0.5rem;
+  color:lightblue;
+}
 .main-nav {
-  padding: 0;
+  padding: 0.1em;
+}
+
+.main-nav ul {
+  display: none;
+  padding: 1em;
   list-style: none;
   clear: both;
+  background-color: black;
+  padding: 15px;
+  border-radius: 5px;
+  width:100%;
+  /*padding-right: 500px;*/
+}
+
+.main-nav:hover ul {
+  display: block;
+  /*background-color: red;*/
 }
 
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
+  text-align: center;
   border-bottom: 1px solid #ccc;
-  list-style-type: none;
-  display: inline-block;
 }
 
-/* DONE: Style the filters so they look good on small screens:
-    Use the full width, and remove the list bullet. */
+.main-nav:hover li {
+ color: yellow;
+}
 
 #filters {
   padding: 0;
   list-style: none;
-}
-
-#filters select {
-  width:100%;
 }
 
 .template {
@@ -45,10 +87,92 @@
   text-decoration: none;
 }
 
-.pull-left {
-  float: left;
+footer{
+    background:  #a6a6a6;
+    bottom:0;
+    position:relative;;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /*width:60%;*/
+}
+#contactDiv{
+  background-color: #ffcccc;
+  width: 22rem;
+  height: 32rem;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  text-align: center;
+}
+#contactDiv ul li{
+  padding:0.5rem;
+  list-style: none;
 }
 
-.pull-right {
-  float: right;
-}
+/* DONE: Now add styles for how things should look on a larger screen:
+         - Hide the hamburger.
+         - Main should be all on one row, with padding spaced better for a larger screen.
+         - Just, ya know, try to make it look good! */
+/* @media only screen... */
+
+/*larger screen:*/
+@media screen and (min-width: 900px) {
+  nav.main-nav.icon-menu::before {
+    display: none;
+  }
+  nav.main-nav.icon-menu ul {
+    display: inline-block;
+    float: left;
+    margin-left: 1em;
+  }
+  .main-nav li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+    /*margin-left: 2%;*/
+    list-style: none;
+    clear: none;
+    border-bottom: none;
+    text-align: center;
+  }
+
+  #home{
+    text-align: center;
+  }
+
+  #home h1{
+    font-size: 7rem;
+  }
+  #home h2{
+    font-size: 4.5rem;
+    color:pink;
+  }
+  #home h3{
+    font-size: 2rem;
+  }
+
+  #contactDiv{
+    background-color: #ffcccc;
+    width: 48rem;
+    height: 40rem;
+    padding-left: 2rem;
+    margin-left: 2rem;
+    text-align: center;
+  }
+  #contactDiv ul li{
+    padding:1rem;
+    list-style: none;
+  }
+
+
+  /*#home h3{
+    font-size: 2rem;
+  }*/
+  footer{
+    width:100%;
+      background:  #a6a6a6;
+      bottom:0;
+      position:fixed;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+  }
