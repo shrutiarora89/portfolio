@@ -6,7 +6,6 @@
     <title>Blog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
@@ -16,7 +15,7 @@
 
 
 
-    <!--+++++++++-->
+    <!-- Handlebar used to instatiate properties of new instance   -->
       <script id="rawData-template" type="text/x-handlebars-template">
           <article class="{{template}}" data-category="{{category}}" data-author="{{institute}}">
               <header>
@@ -34,8 +33,6 @@
 
   </head>
 
-
-  <!-- <body id="color"> -->
   <body>
 
     <header class="site-header clearfix">
@@ -46,19 +43,13 @@
 
           <nav class="main-nav icon-menu">
               <ul>
-                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li>
-                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li> -->
-
-                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li> -->
-                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li>
-                <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-                <li class="tab" data-content="education"><a href="#">Education</a></li>
-                <li class="tab" data-content="projects"><a href="#">Projects</a></li>
-
+                <li class="tab" data-content="home"><a href="/home" class="icon-home"> Home</a></li>
+                <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> About</a></li>
+                <li class="tab" data-content="education"><a href="/education">Education</a></li>
+                <li class="tab" data-content="projects"><a href="/projects">Projects</a></li>
                 <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
                 <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
-                <li class="tab" data-content="contact"><a href="#">Contact</a></li>
-
+                <li class="tab" data-content="contact"><a href="/contact">Contact</a></li>
               </ul>
           </nav>
 
@@ -66,8 +57,8 @@
 
 
     <main>
-
-      <!--#articles  and .tab-content-->
+      <!--#articles-->
+       <!-- #project and linked to projectsController -->
       <section id="projects" class="tab-content">
               <div>
                 <ul id="filters">
@@ -79,8 +70,8 @@
                 </ul>
               </div>
       </section>
-<!--#article  and .tab-content-->
 
+<!-- #about and linked to aboutController -->
   <section id="about" class="tab-content">
         <header>
            Welcome to my Blog
@@ -96,13 +87,14 @@
           </section>
       </section>
 
-      <!-- Append #education toHtml -->
+      <!-- Append #education toHtml and linked to educationController -->
       <section id="education" class="tab-content"></section>
 
-      <!-- Append #projects toHtml -->
+      <!-- Append #projects toHtml and linked to projectsController -->
       <section id="projects" class="tab-content"></section>
 
-      <!-- <section id="hello" class="tab-content"> -->
+
+      <!-- Append #home toHtml and linked to homeController -->
       <section id="home" style="position:relative;" class="tab-content">
         <div style="position:relative;z-index:100">
           <h1 id="h1">HELLO</h1>
@@ -113,6 +105,7 @@
        <div id="bubbles" style="position:absolute;z-index:0;top:0;left:0;opacity:0.1"></div>
       </section>
 
+      <!-- Append #contact toHtml and linked to contactController -->
       <section id="contact" class="tab-content">
         <div id="contactDiv">
             <h1>Contact Me</h1>
@@ -126,26 +119,38 @@
       </section>
 
 
-    <!--  -->
   <!--Your new content will be displayed in here-->
       <section class="content-placeholder"></section>
-<!--  -->
 
     </main>
     <footer>
       &copy; 2015 Code Fellows | Portfolio | Happy Coding!
     </footer>
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+<!--Vendor Scripts  -->
+  <script src="/vendor/scripts/page.js"></script>
+  <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+  <script src="/vendor/scripts/handlebars.js"></script>
+  <script src="/vendor/scripts/marked.js"></script>
+  <script src="/vendor/scripts/html5sql.js"></script>
+  <script src="/vendor/scripts/highlight.pack.js"></script>
 
-    <!-- <script src="scripts/rawDataArticles.js"></script> -->
-    <script src="data/rawDataProjects.json"></script>
-    <script src="data/rawDataEducation.json"></script>
-    <script src="scripts/article.js"></script>
-    <script src="scripts/articleView.js"></script>
-    <script src="scripts/scriptCircle.js"></script>
+<!--Scripts  -->
+  <script src="/scripts/article.js"></script>
+  <script src="/scripts/articleView.js"></script>
+  <script src="/scripts/webdb.js"></script>
+  <script src="/scripts/educationController.js"></script>
+  <script src="/scripts/projectsController.js"></script>
+  <script src="/scripts/homeController.js"></script>
+  <script src="/scripts/aboutController.js"></script>
+  <script src="/scripts/contactController.js"></script>
+  <script src="/scripts/routes.js"></script>
+
+  <script src="/scripts/scriptCircle.js"></script>
+
+
   <script>
+        // <!-- We want to run articleView.initIndexPage after the fetchAll method -->
       Article.fetchEducation(articleView.initIndexPage);
       Article.fetchProjects(articleView.initIndexPage);
 

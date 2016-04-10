@@ -1,85 +1,117 @@
-// Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
-var articleView = {};
+(function(module) {
 
-articleView.populateFilters = function() {
-  $('#projects article').each(function() {
-    if (!$(this).hasClass('template')) {
-      var val = $(this).attr('data-category');
-      optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#category-filter option[value="' + val + '"]').length === 0) {
-        $('#category-filter').append(optionTag);
+  // A view object, to hold all the functions for dynamic updates
+  // and article-related event handlers.
+  var articleView = {};
+
+  articleView.populateFilters = function() {
+    $('article').each(function() {
+      if (!$(this).hasClass('template')) {
+        var val = $(this).find('address a').text();
+        var optionTag = '<option value="' + val + '">' + val + '</option>';
+        // Done: Ensure authors listed in the filter are unique
+        if ($('#author-filter option[value="' + val + '"]').length === 0) {
+          $('#author-filter').append(optionTag);
+        }
+
+        val = $(this).attr('data-category');
+        optionTag = '<option value="' + val + '">' + val + '</option>';
+        if ($('#category-filter option[value="' + val + '"]').length === 0) {
+          $('#category-filter').append(optionTag);
+        }
       }
-    }
-  });
-};
+    });
+  };
+
+  articleView.handleCategoryFilter = function() {
+    $('#category-filter').on('change', function() {
+      if ($(this).val()) {
+        $('article').hide();
+        $('article[data-category="' + $(this).val() + '"]').fadeIn();
+      } else {
+        $('article').fadeIn();
+        $('article.template').hide();
+      }
+      $('#author-filter').val('');
+    });
+  };
 
 
-//
-articleView.handleCategoryFilter = function() {
-  $('#category-filter').on('change', function() {
-    if ($(this).val()) {
-      $('article').hide();
-      $('article[data-category="' + $(this).val() + '"]').fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
-    }
-    $('#author-filter').val('');
-  });
-};
+  articleView.setTeasers = function() {
+    $('.article-body *:nth-of-type(n+2)').hide();
 
+    $('#articles').on('click', 'a.read-on', function(e) {
+      e.preventDefault();
+      $(this).parent().find('*').fadeIn();
+      $(this).hide();
+    });
+  };
 
-// technically it may not be the top of the page - it may be an anchor to somewhere
-// else on the page or it may be the click event that fires a jquery event
+  articleView.initNewArticlePage = function() {
+    $('.tab-content').show();
+    $('#export-field').hide();
+    $('#article-json').on('focus', function(){
+      this.select();
+    });
 
-//NAVIGATION
-articleView.handleMainNav = function() {
-  $('.main-nav').on('click', '.tab', function(e) {
-    $('.tab-content').hide(); //hide the data for all the tabs.
-    $('#' + $(this).data('content')).fadeIn();//Show the data for whichever tab is clicked.
-  });
+    $('#new-form').on('change', 'input, textarea', articleView.create);
+  };
 
-  $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
-};
+  articleView.create = function() {
+    var article;
+    $('#articles').empty();
 
+    // Instantiate an article based on what's in the form fields:
+    article = new Article({
+      title: $('#article-title').val(),
+      author: $('#article-author').val(),
+      authorUrl: $('#article-author-url').val(),
+      category: $('#article-category').val(),
+      body: $('#article-body').val(),
+      publishedOn: $('#article-published:checked').length ? util.today() : null
+    });
 
-articleView.setTeasers = function() {
-  $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
+    $('#articles').append(article.toHtml());
 
-  // TODO: Add an event handler to reveal all the hidden elements,
-  //       when the .read-on link is clicked. You can go ahead and hide the
-  //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
-  //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
-  //       process any .read-on clicks that happen within child nodes.
-  $('article').on('click',function(ev){
-    var $evTarget = $(ev.target);
-    ev.preventDefault();
-    if($evTarget.hasClass('read-on')){
-      $evTarget.parent().children().show();
-      $evTarget.hide();
-    }
-  });
-};
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
 
-// A function that initiates the index page and goes thro each item of array articlesEducation
-// and appends it to the screen.
-articleView.initIndexPage = function() {
+    // Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
+    $('#export-field').show();
+    $('#article-json').val(JSON.stringify(article) + ',');
+  };
 
-  //Array of educat data including all functions
-  articlesEducation.forEach(function(a){
-    $('#education').append(a.toHtml());
-  });
+  // A function that initiates the index page and goes thro each item of array articlesEducation
+  // and appends it to the screen.
+  articleView.initIndexPage = function() {
+    //Array of educat data including all functions
+    articlesEducation.forEach(function(a){
+      $('#education').append(a.toHtml());
+    });
 
-//Array of project data including all functions
-  articlesProjects.forEach(function(a){
-    $('#projects').append(a.toHtml());
-  });
+  //Array of project data including all functions
+    articlesProjects.forEach(function(a) {
+      $('#projects').append(a.toHtml());
+    });
 
-  $(document).ready(function() {
-    articleView.populateFilters();
-    articleView.handleCategoryFilter();
-    articleView.handleMainNav();
-    articleView.setTeasers();
-  });
+    $(document).ready(function() {
+      articleView.populateFilters();
+      articleView.handleCategoryFilter();
+      articleView.setTeasers();
+    });
+  };
 
-};
+  articleView.initAdminPage = function() {
+    var template = Handlebars.compile($('#author-template').text());
+
+    Article.numWordsByAuthor().forEach(function(stat) {
+      $('.author-stats').append(template(stat));
+    });
+
+    $('#blog-stats .articles').text(Article.all.length);
+    $('#blog-stats .words').text(Article.numWordsAll());
+  };
+
+  module.articleView = articleView;
+})(window);
