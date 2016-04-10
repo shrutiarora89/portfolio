@@ -25,7 +25,6 @@
 // Function that pushes the data into the array articlesEducation and insantiating a new object Education using Constructor and  // using .map method.
   Article.loadEducation = function(data){
     data.map(function(ele) {
-      console.log(data);
       articlesEducation.push(new Article(ele));
     });
   };
@@ -82,7 +81,6 @@
   else { //When we don't have rawDataProjects in the  localStorage
      //retriving the JSON file from the server with AJAX getJSON method
       $.getJSON('data/rawDataProjects.json',function(data){
-        console.log(data);
        //load all the data using .loadAll function
         Article.loadProjects(data);
        //caching it in the localStorage (Key-rawDataEducation, value-JSON.stringfy(data))
