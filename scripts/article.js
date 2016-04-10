@@ -1,13 +1,12 @@
-var myself = this;
 
 (function(module) {
 
   function Article (opts) {
-    myself.title = opts.title;
-    myself.institute = opts.institute;
-    myself.instituteUrl = opts.instituteUrl;
-    myself.category = opts.category;
-    myself.body = opts.body;
+    this.title = opts.title;
+    this.institute = opts.institute;
+    this.instituteUrl = opts.instituteUrl;
+    this.category = opts.category;
+    this.body = opts.body;
   }
 
   // array for projects
@@ -19,12 +18,11 @@ var myself = this;
   Article.prototype.toHtml = function() {
     var theTemplateScript = $('#rawData-template').html();
     var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledHtml = theTemplate(myself);
+    var theCompiledHtml = theTemplate(this);
     return theCompiledHtml;
   };
 
-// Refactoring the forEach code by using .map method
-// Function that pushes the data into the array articlesEducation and insantiating a new object Education using Constructor.
+// Function that pushes the data into the array articlesEducation and insantiating a new object Education using Constructor and  // using .map method.
   Article.loadEducation = function(data){
     data.map(function(ele) {
       console.log(data);
@@ -35,7 +33,6 @@ var myself = this;
  // Function that pushes the data into the array articlesProjects and insantiating a new object Project using Constructor.
   Article.loadProjects = function(data){
     data.map(function(ele) {
-      console.log(data);
       articlesProjects.push(new Article(ele));
     });
 
@@ -75,7 +72,7 @@ var myself = this;
    //When the rawDataEducation is alredy in localStorage
   //  Second time- It will get the item by the key rawDataProjects which is set on line 80.
   // The localStorage will have the data
-    if (localStorage.getItem('rawDataProjects')){
+    if (false && localStorage.getItem('rawDataProjects')){
      //load all the data using .loadAll function
       var data = JSON.parse(localStorage.getItem('rawDataProjects'));
       Article.loadProjects(data);
@@ -97,5 +94,5 @@ var myself = this;
     }
   };
   module.Article = Article;
- // -------------------------------------------------------------------------------------------------
 })(window);
+// -------------------------------------------------------------------------------------------------
