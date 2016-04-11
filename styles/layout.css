@@ -1,50 +1,125 @@
-.pull-left {
-  float: left;
+#site-header {
+  background:  #a6a6a6;
+  width:100% ;
 }
 
-.pull-right {
-  float: right;
+/*FOOTER
+=======================================*/
+footer {
+    background:  #a6a6a6;
+    bottom:0;
+    position:absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+
+
+/*CONTACT US
+=======================================*/
+#contactDiv{
+  background-color: #ffcccc;
+  width: 48rem;
+  height: 40rem;
+  padding-left: 2rem;
+  margin-left: 2rem;
+  text-align: center;
 }
 
-.heading-group-h1 {
-  max-width: 80%;
+#contactDiv ul li{
+  padding:1rem;
+  list-style: none;
 }
 
-#filters select {
-  width: 90%;
-  margin: .2em 5%;
+/*HOME
+=======================================*/
+#home{
+  text-align: center;
 }
 
-/*THe content of Read On will be blocked for Mobile*/
-.article-body {
-  display: none;
+#home h1{
+  font-size: 5rem;
+}
+#home h2{
+  font-size: 2.5rem;
+  color:pink;
+}
+#home h3{
+  font-size: 1rem;
+}
+#home h4{
+  font-size: 0.5rem;
+  color:lightblue;
 }
 
-/* DONE: Add styles so the filters lay out better on desktop. */
+
+
+
+/* DESKTOP
+=======================================*/
 @media only screen and (min-width: 640px) {
+  #home{
+    text-align: center;
+  }
+
+  #home h1{
+    font-size: 7rem;
+  }
+  #home h2{
+    font-size: 4.5rem;
+    color:pink;
+  }
+  #home h3{
+    font-size: 2rem;
+  }
+
+  footer{
+      background:  #a6a6a6;
+      bottom:0;
+  }
+}
+
+
+@media screen and (min-width: 640px) {
   .heading-group-h1 {
     padding: .1em .1em .1em 2em;
     float: none;
   }
+  
 
-  #filters select {
+  .filters select {
     width: 15em;
     margin: .2em .2em;
   }
 
-  #filters li {
+  .filters li {
     width: 20em;
     display: inline;
   }
 
-/*THe content of Read On will be displayed for Desktop*/
+   /*The content of Read On will be displayed for Desktop*/
   .article-body {
     display: block;
+  }
+  	
+	
+  .main-nav.icon-menu::before {
+    display: none;
+  }
+  
+  .main-nav.icon-menu ul {
+    display: inline-block;
+    float: left;
+    margin-left: 1em;
+  }
+  
+  .main-nav li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+    /*margin-left: 2%;*/y
+    clear: none;
+    border-bottom: none;
+    text-align: center;
   }
 }

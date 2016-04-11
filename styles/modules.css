@@ -1,43 +1,58 @@
-.site-header {
-  background:  #a6a6a6;
-  width:100% ;
+/* FORMATTING
+-------------------*/
+.pull-left {
+  float: left;
 }
 
-/* DONE: Float the main header to the left, to make room for the hamburger menu. */
+.pull-right {
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.template {
+  display: none;
+}
+
+
+/* DROPDOWNS
+------------------*/
+.filters {
+  padding: 0;
+  list-style: none;
+}
+
+.filters select {
+  width: 90%;
+  margin: .2em 5%;
+}
+
+
+
+/* HEADING
+------------------*/
 .heading-group-h1 {
   float: left;
   padding: 0 0 .2em 1em;
+  max-width: 80%;
+
 }
 
-/* DONE: Add styles for the icon-menu class. It should be bigger, and off to the right. */
-nav.main-nav.icon-menu::before {
-  float: right;
-  margin-right:0.5em;
-}
-.icon-menu::before {
-  font-size: 2rem;
-}
 
-#home{
-  text-align: center;
-}
 
-#home h1{
-  font-size: 5rem;
-}
-#home h2{
-  font-size: 2.5rem;
-  color:pink;
-}
-#home h3{
-  font-size: 1rem;
-}
-#home h4{
-  font-size: 0.5rem;
-  color:lightblue;
-}
+/* NAV
+------------------*/
 .main-nav {
   padding: 0.1em;
+}
+
+.main-nav.icon-menu::before {
+  float: right;
+  margin-right:1.0em;
 }
 
 .main-nav ul {
@@ -69,13 +84,13 @@ nav.main-nav.icon-menu::before {
  color: yellow;
 }
 
-#filters {
-  padding: 0;
-  list-style: none;
-}
 
-.template {
-  display: none;
+
+/* ARTICLE
+------------------*/
+.article-body {  
+  display: none; /*The content of Read On will be blocked for Mobile*/
+
 }
 
 .byline {
@@ -87,65 +102,51 @@ nav.main-nav.icon-menu::before {
   text-decoration: none;
 }
 
-footer{
-    background:  #a6a6a6;
-    bottom:0;
-    position:absolute;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
-/* DONE: Now add styles for how things should look on a larger screen:
-         - Hide the hamburger.
-         - Main should be all on one row, with padding spaced better for a larger screen.
-         - Just, ya know, try to make it look good! */
-/* @media only screen... */
 
-/*larger screen:*/
-@media screen and (min-width: 900px) {
-  nav.main-nav.icon-menu::before {
+/* DESKTOP
+------------------*/
+@media screen and (min-width: 640px) {
+  .heading-group-h1 {
+    padding: .1em .1em .1em 2em;
+    float: none;
+  }
+  
+
+  .filters select {
+    width: 15em;
+    margin: .2em .2em;
+  }
+
+  .filters li {
+    width: 20em;
+    display: inline;
+  }
+
+   /*The content of Read On will be displayed for Desktop*/
+  .article-body {
+    display: block;
+  }
+  	
+	
+  .main-nav.icon-menu::before {
     display: none;
   }
-  nav.main-nav.icon-menu ul {
+  
+  .main-nav.icon-menu ul {
     display: inline-block;
     float: left;
     margin-left: 1em;
   }
+  
   .main-nav li {
     display: inline-block;
     padding: 0 1em 0 0;
-    /*margin-left: 2%;*/
-    list-style: none;
+    /*margin-left: 2%;*/y
     clear: none;
     border-bottom: none;
     text-align: center;
   }
-
-  #home{
-    text-align: center;
-  }
-
-  #home h1{
-    font-size: 7rem;
-  }
-  #home h2{
-    font-size: 4.5rem;
-    color:pink;
-  }
-  #home h3{
-    font-size: 2rem;
-  }
-  /*#home h3{
-    font-size: 2rem;
-  }*/
-  footer{
-      background:  #a6a6a6;
-      bottom:0;
-      /*position:absolute;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;*/
-  }
 }
+
