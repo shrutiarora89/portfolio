@@ -6,13 +6,11 @@
     <title>Blog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
-    <!--+++++++++-->
       <script id="rawData-template" type="text/x-handlebars-template">
           <article class="{{template}}" data-category="{{category}}" data-author="{{institute}}">
               <header>
@@ -26,11 +24,7 @@
                <a href="#" class="read-on">Read on &rarr;</a>
           </article>
       </script>
-
-<!--+++++++++++-->
-
   </head>
-
 
   <body>
     <header class="site-header clearfix">
@@ -38,32 +32,20 @@
             <h1>Shruti Arora</h1>
             <h2>My Online Portfolio </h2>
           </section>
-
-          <nav class="main-nav icon-menu">
-              <ul>
-                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li>
-                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li> -->
-
-                <!-- <li class="tab" data-content="hello"><a href="#">Hello</a></li> -->
-                <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li>
-                <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-
-                <li class="tab" data-content="education"><a href="#">Education</a></li>
-                  <li class="tab" data-content="projects"><a href="#">Projects</a></li>
-
-                <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
-                <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
-                <li class="tab" data-content="contact"><a href="#">Contact</a></li>
-
-              </ul>
-          </nav>
-
+        <nav class="main-nav icon-menu">
+            <ul>
+              <li class="tab" data-content="home"><a href="#" class="icon-home"> Home</a></li>
+              <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
+              <li class="tab" data-content="education"><a href="#">Education</a></li>
+              <li class="tab" data-content="projects"><a href="#">Projects</a></li>
+              <li><a href="https://www.linkedin.com/in/shruti-arora-88525ab7" target="_blank"> LinkedIn</a></li>
+              <li><a href="https://github.com/shrutiarora89" target="_blank" class="icon-github"> GitHub</a></li>
+              <li class="tab" data-content="contact"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-
-    <main>
-
-      <!--#articles  and .tab-content-->
+  <main>
       <section id="projects" class="tab-content">
               <div>
                 <ul id="filters">
@@ -75,7 +57,6 @@
                 </ul>
               </div>
       </section>
-<!--#article  and .tab-content-->
 
   <section id="about" class="tab-content">
         <header>
@@ -93,7 +74,6 @@
       </section>
       <section id="education" class="tab-content"></section>
 
-      <!-- <section id="hello" class="tab-content"> -->
       <section id="home" class="tab-content">
           <h1 id="h1">HELLO</h1>
           <h2 id="h2">I'M SHRUTI</h2>
@@ -114,24 +94,15 @@
       </section>
 
 
-    <!--  -->
   <!--Your new content will be displayed in here-->
       <section class="content-placeholder"></section>
-<!--  -->
 
     </main>
-    <!-- <footer>
-      &copy; 2015 Code Fellows | Portfolio | Happy Coding!
-    </footer> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-
-    <!-- <script src="scripts/rawDataArticles.js"></script> -->
     <script src="scripts/rawDataProjects.js"></script>
     <script src="scripts/rawDataEducation.js"></script>
-
-
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
   </body>
