@@ -1,5 +1,5 @@
 // array for projects
- articles = [];
+ articlesProjects = [];
 
 // array for education
  articlesEducation = [];
@@ -21,34 +21,18 @@
    return theCompiledHtml;
  };
 
-//ele-element- rawDAta each element
-// rawData.forEach(function(ele) {
-//   articles.push(new Article(ele));
-// });
-
-//
  rawDataProjects.forEach(function(ele) {
-   articles.push(new Article(ele));
+   articlesProjects.push(new Article(ele));
  });
 
  rawDataEducation.forEach(function(ele) {
    articlesEducation.push(new Article(ele));
  });
 
-//
-
-
-// #articles
-// articles.forEach(function(a){
-//   $('#articles').append(a.toHtml());
-// });
-// #article`s
-
-//a-variable- Structure of Object
  articlesEducation.forEach(function(a){
    $('#education').append(a.toHtml());
  });
 
- articles.forEach(function(a){
+ articlesProjects.forEach(function(a){
    $('#projects').append(a.toHtml());
  });
