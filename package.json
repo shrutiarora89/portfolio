@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "description": "This is a simple blogging system front end. The code is organized with MVC principles in mind.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shrutiarora89/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shrutiarora89/portfolio/issues"
+  },
+  "homepage": "https://github.com/shrutiarora89/portfolio#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
