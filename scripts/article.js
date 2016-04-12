@@ -1,13 +1,11 @@
-var myself = this;
-
 (function(module) {
 
   function Article (opts) {
-    myself.title = opts.title;
-    myself.institute = opts.institute;
-    myself.instituteUrl = opts.instituteUrl;
-    myself.category = opts.category;
-    myself.body = opts.body;
+    this.title = opts.title;
+    this.institute = opts.institute;
+    this.instituteUrl = opts.instituteUrl;
+    this.category = opts.category;
+    this.body = opts.body;
   }
 
   // array for projects
@@ -19,7 +17,7 @@ var myself = this;
   Article.prototype.toHtml = function() {
     var theTemplateScript = $('#rawData-template').html();
     var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledHtml = theTemplate(myself);
+    var theCompiledHtml = theTemplate(this);
     return theCompiledHtml;
   };
 
