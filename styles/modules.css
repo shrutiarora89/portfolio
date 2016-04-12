@@ -83,6 +83,7 @@ nav.main-nav.icon-menu::before {
 .byline a {
   font-weight: bold;
   text-decoration: none;
+  font-style: normal;
 }
 
 footer{

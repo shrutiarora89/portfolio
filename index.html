@@ -18,11 +18,11 @@
               <header>
                   <h1>{{{title}}}</h1>
                   <div class="byline">
-                   Studied at<address><a href="{{instituteUrl}}">{{institute}}</a></address>
+                   Studied at &nbsp;<address><a href="{{instituteUrl}}">{{institute}}</a></address>
                    </div>
                </header>
                <section class="article-body">{{{body}}}</section>
-               <a href="#" class="read-on">Read on &rarr;</a>
+               <a href="#" class="read-on">Read on &rarr;</a><hr>
           </article>
       </script>
 
@@ -119,5 +119,10 @@
 
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
+    
+    <script>
+	    articleView.initIndexPage();
+	</script>
+    
   </body>
 </html>

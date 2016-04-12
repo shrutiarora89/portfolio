@@ -1,5 +1,11 @@
 (function(module) {
 
+  // array for projects
+  articlesProjects = [];
+
+  // array for education
+  articlesEducation = [];
+ 
   rawDataProjects.forEach(function(ele) {
     articlesProjects.push(new Article(ele));
   });
@@ -8,15 +14,7 @@
     articlesEducation.push(new Article(ele));
   });
 
-  articlesEducation.forEach(function(a){
-    $('#education').append(a.toHtml());
-  });
-
-  articlesProjects.forEach(function(a){
-    $('#projects').append(a.toHtml());
-  });
-
-// Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+  // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
   var articleView = {};
 
   articleView.populateFilters = function() {
@@ -45,7 +43,7 @@
     });
   };
 
-//NAVIGATION
+  //NAVIGATION
   articleView.handleMainNav = function() {
     $('.main-nav').on('click', '.tab', function(e) {
       $('.tab-content').hide(); //hide the data for all the tabs.
@@ -69,15 +67,15 @@
     });
   };
 
-// A function that initiates the index page and goes thro each item of array articlesEducation
-// and appends it to the screen.
+  // A function that initiates the index page and goes thro each item of array articlesEducation
+  // and appends it to the screen.
   articleView.initIndexPage = function() {
   //Array of educat data including all functions
     articlesEducation.forEach(function(a){
       $('#education').append(a.toHtml());
     });
 
-//Array of project data including all functions
+    //Array of project data including all functions
     articlesProjects.forEach(function(a){
       $('#projects').append(a.toHtml());
     });
@@ -90,5 +88,6 @@
     });
 
   };
+  
   module.articleView = articleView;
 })(window);
