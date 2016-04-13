@@ -1,11 +1,13 @@
 (function(module) {
   var aboutController = {};
 
-// Function that hides all the sections under main HTML element and
-// reveals only the selcted ID section(about)
   aboutController.index = function() {
-    $('main > section').hide();
-    $('#about').fadeIn();
+    //Using jQuery Selector selecting about page elements and reveal it, hiding its siblings
+    $('#about').show().siblings().hide();
+
+    //Requesting the function requestRepos by passing the repoView as a calback function to render the page.
+    repos.requestRepos(repoView.index);
   };
+
   module.aboutController = aboutController;
 })(window);
