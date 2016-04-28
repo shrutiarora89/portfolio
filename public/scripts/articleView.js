@@ -1,7 +1,5 @@
 (function(module) {
 
-
-// Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
   var articleView = {};
 
   articleView.populateFilters = function() {
@@ -42,7 +40,6 @@
 
   articleView.setTeasers = function() {
     $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
-  //Added an event handler to reveal and hide the read-on when clicked.
     $('article').on('click',function(ev){
       var $evTarget = $(ev.target);
       ev.preventDefault();
@@ -53,7 +50,6 @@
     });
   };
 
-// A function that initiates the index page and goes thro each item of array articlesEducation
 // and appends it to the screen.
   articleView.initIndexPage = function() {
   //Array of educat data including all functions
