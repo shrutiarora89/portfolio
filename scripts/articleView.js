@@ -13,8 +13,6 @@ articleView.populateFilters = function() {
   });
 };
 
-
-//
 articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
@@ -29,9 +27,6 @@ articleView.handleCategoryFilter = function() {
 };
 
 
-// technically it may not be the top of the page - it may be an anchor to somewhere
-// else on the page or it may be the click event that fires a jquery event
-
 //NAVIGATION
 articleView.handleMainNav = function() {
   $('.main-nav').on('click', '.tab', function(e) {
@@ -45,12 +40,6 @@ articleView.handleMainNav = function() {
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any artcile body.
-
-  // TODO: Add an event handler to reveal all the hidden elements,
-  //       when the .read-on link is clicked. You can go ahead and hide the
-  //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
-  //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
-  //       process any .read-on clicks that happen within child nodes.
   $('article').on('click',function(ev){
     var $evTarget = $(ev.target);
     ev.preventDefault();

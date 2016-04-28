@@ -21,12 +21,6 @@
    return theCompiledHtml;
  };
 
-//ele-element- rawDAta each element
-// rawData.forEach(function(ele) {
-//   articles.push(new Article(ele));
-// });
-
-//
  rawDataProjects.forEach(function(ele) {
    articles.push(new Article(ele));
  });
@@ -35,16 +29,6 @@
    articlesEducation.push(new Article(ele));
  });
 
-//
-
-
-// #articles
-// articles.forEach(function(a){
-//   $('#articles').append(a.toHtml());
-// });
-// #article`s
-
-//a-variable- Structure of Object
  articlesEducation.forEach(function(a){
    $('#education').append(a.toHtml());
  });
