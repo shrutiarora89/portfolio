@@ -43,7 +43,6 @@
 }
 
 
-
 /* NAV
 ------------------*/
 .main-nav {
@@ -69,7 +68,6 @@
 
 .main-nav:hover ul {
   display: block;
-  /*background-color: red;*/
 }
 
 .main-nav li {
@@ -88,7 +86,7 @@
 
 /* ARTICLE
 ------------------*/
-.article-body {  
+.article-body {
   display: none; /*The content of Read On will be blocked for Mobile*/
 
 }
@@ -103,8 +101,6 @@
 }
 
 
-
-
 /* DESKTOP
 ------------------*/
 @media screen and (min-width: 640px) {
@@ -112,7 +108,7 @@
     padding: .1em .1em .1em 2em;
     float: none;
   }
-  
+
 
   .filters select {
     width: 15em;
@@ -128,25 +124,23 @@
   .article-body {
     display: block;
   }
-  	
-	
+
+
   .main-nav.icon-menu::before {
     display: none;
   }
-  
+
   .main-nav.icon-menu ul {
     display: inline-block;
     float: left;
     margin-left: 1em;
   }
-  
+
   .main-nav li {
     display: inline-block;
     padding: 0 1em 0 0;
-    /*margin-left: 2%;*/y
     clear: none;
     border-bottom: none;
     text-align: center;
   }
 }
-

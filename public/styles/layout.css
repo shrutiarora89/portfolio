@@ -1,3 +1,4 @@
+
 #site-header {
   background:  #a6a6a6;
   width:100% ;
@@ -13,8 +14,6 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
-
-
 
 /*CONTACT US
 =======================================*/
@@ -53,9 +52,6 @@ footer {
   color:lightblue;
 }
 
-
-
-
 /* DESKTOP
 =======================================*/
 @media only screen and (min-width: 640px) {
@@ -78,15 +74,35 @@ footer {
       background:  #a6a6a6;
       bottom:0;
   }
+
+  .article-body {
+    display: block;
+  }
+
+  .main-nav.icon-menu::before {
+    display: none;
+  }
+
+  .main-nav.icon-menu ul {
+    display: inline-block;
+    float: left;
+    margin-left: 1em;
+  }
+
+  .main-nav li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+    clear: none;
+    border-bottom: none;
+    text-align: center;
+  }
 }
 
-
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 640px) {*/
   .heading-group-h1 {
     padding: .1em .1em .1em 2em;
     float: none;
   }
-  
 
   .filters select {
     width: 15em;
@@ -98,28 +114,25 @@ footer {
     display: inline;
   }
 
-   /*The content of Read On will be displayed for Desktop*/
+  /*Content of Read On will be displayed for Desktop*/
   .article-body {
     display: block;
   }
-  	
-	
+
   .main-nav.icon-menu::before {
     display: none;
   }
-  
+
   .main-nav.icon-menu ul {
     display: inline-block;
     float: left;
     margin-left: 1em;
   }
-  
+
   .main-nav li {
     display: inline-block;
     padding: 0 1em 0 0;
-    /*margin-left: 2%;*/y
     clear: none;
     border-bottom: none;
     text-align: center;
   }
-}
